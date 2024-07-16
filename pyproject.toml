@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "practice_db_libs"
+version = "0.1.0"
+description = ""
+authors = ["KoyamaShimpei <snpi.mlk369@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+SQLAlchemy = "^1.4.52"
+sqlmodel = "=0.0.10"
+PyMySQL = "^1.1.1"
+alembic = "^1.13.1"
+cryptography = "^42.0.8"
+black = "^24.4.2"
+ruff = "^0.5.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+disallow_any_explicit = false
+disallow_any_generics = true
+disallow_subclassing_any = true
+
+disallow_untyped_calls = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+warn_unreachable = true
+no_implicit_reexport = true
+strict_equality = true
+warn_unused_configs = true
+
+exclude = [
+    "^.*[a-z]*-[a-z]*/.*$"
+]
+plugins = ["pydantic.mypy", "sqlalchemy.ext.mypy.plugin", "sqlmypy"]
+mypy_path = "$MYPY_CONFIG_FILE_DIR/typings"
+
+
